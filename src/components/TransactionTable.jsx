@@ -7,6 +7,8 @@ export default function TransactionTable({transactions}) {
   console.log(transactions, 'test');
   const dispatch = useDispatch()
 
+  let dollarIndonesiaLocale = Intl.NumberFormat('en-ID');
+
   function delTransaction(id) {
     dispatch(deleteTransaction(id))
   }
@@ -15,7 +17,7 @@ export default function TransactionTable({transactions}) {
     <table id='transactions'>
       <tr>
         <th>Date</th>
-        <th>Item</th>
+        <th>Description</th>
         <th>Amount (IDR)</th>
         <th>Action</th>
       </tr>
@@ -25,7 +27,7 @@ export default function TransactionTable({transactions}) {
             <tr>
               <td>{transaction.date}</td>
               <td>{transaction.payee}</td>
-              <td>Rp {transaction.amount}</td>
+              <td>Rp {dollarIndonesiaLocale.format(transaction.amount)}</td>
               <td>
                 <button
                   onClick={() => delTransaction(transaction.id)}

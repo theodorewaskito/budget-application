@@ -27,7 +27,7 @@ body {
 }
 
 .active {
-  background-color: #04AA6D;
+  background-color: #dd9400;
 }
 
 .button-add {
@@ -48,8 +48,8 @@ hr.solid {
 }
 
 #add-transaction {
-  background-color: #00cc00;
-  border: 1px solid #00cc00;
+  background-color: #dd9400;
+  border: 1px solid #dd9400;
   border-radius: 8px;
   box-sizing: border-box;
   color: #ffffff;
@@ -100,12 +100,11 @@ hr.solid {
 }
 
 #add-transaction:hover {
-  background-color: rgb(58, 197, 3);
+  background-color: rgb(128, 102, 1);
 }
 
 #add-expense:hover {
   background-color: rgb(185, 106, 3);
-
 }
 
 #add-transaction:focus-visible, #add-expense:focus-visible {
@@ -117,7 +116,7 @@ hr.solid {
   background-color: #F7F7F7;
   border-color: #000000;
   transform: scale(.96);
-  background-color: rgb(254, 166, 52);
+  background-color: rgb(128, 102, 1);
 }
 
 #add-transaction:disabled, #add-expense:disabled {
@@ -148,14 +147,14 @@ hr.solid {
 }
 
 #transactions tr:hover {
-  background-color: #ddd;
+  background-color: white;
 }
 
 #transactions th {
   padding-top: 12px;
   padding-bottom: 12px;
   /* text-align: left; */
-  background-color: #04AA6D;
+  background-color: #b67900;
   color: white;
 }
 
@@ -210,7 +209,7 @@ input, select {
   box-sizing: border-box;
 }
 
-input[type=submit], .cancel-button {
+button[type=submit], .cancel-button {
   width: 100%;
   background-color: #4CAF50;
   color: white;
@@ -236,7 +235,7 @@ input[type=submit], .cancel-button {
   grid-column-end: 2;
 }
 
-input[type=submit]:hover{
+button[type=submit]:hover{
   background-color: #45a049;
 }
 

@@ -55,9 +55,9 @@ export function setBalance(payload) {
 
 export function getTransactions() {
   return function(dispatch, getState) {
-    let income = getState().transactionState.income
-    let expense = getState().transactionState.expense
-    let balance = getState().transactionState.balance
+    // let income = getState().transactionState.income
+    // let expense = getState().transactionState.expense
+    // let balance = getState().transactionState.balance
     
     // console.log(payload.email);
     dispatch(setLoading(true))
@@ -70,6 +70,10 @@ export function getTransactions() {
       .then(data => {
         console.log(data); 
         dispatch(setTransactions(data))
+
+        let income = 0
+        let expense = 0
+        let balance = 0
 
         for (let i = 0; i < data.transactions.length; i++) {
           if (data.transactions[i].category_id === 327116) {
@@ -122,12 +126,15 @@ export function deleteTransaction(transactionId) {
 export function createTransaction(payload) {
   return function(dispatch) {
     dispatch(setLoading(true))
+    console.log(payload);
     fetch(`${baseUrl}/transactions`, {
       method: "POST",
-      body: JSON.stringify(payload),
       headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
-      }
+      },
+      body: JSON.stringify(payload)
     }) 
       .then(() => {
         dispatch(getTransactions())
@@ -140,151 +147,3 @@ export function createTransaction(payload) {
       })
   }
 }
-
-// export function getPostId(id) {
-//   return function(dispatch) {
-//     dispatch(setLoading(true))
-//     fetch(`${baseUrl}/posts/${id}`) 
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data);
-//         dispatch(setPost(data))
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err))
-//       })
-//       .finally(() => {
-//         dispatch(setLoading(false))
-//       })
-//   }
-// }
-
-// export function getComments(id) {
-//   return function(dispatch) {
-//     dispatch(setLoading(true))
-//     fetch(`${baseUrl}/posts/${id}/comments`) 
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data);
-//         dispatch(setComments(data))
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err))
-//       })
-//       .finally(() => {
-//         dispatch(setLoading(false))
-//       })
-//   }
-// }
-
-// export function getCommentId(id) {
-//   return function(dispatch) {
-//     dispatch(setLoading(true))
-//     fetch(`${baseUrl}/comments/${id}`) 
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data);
-//         dispatch(setComment(data))
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err))
-//       })
-//       .finally(() => {
-//         dispatch(setLoading(false))
-//       })
-//   }
-// }
-
-// export function createComment(postId, payload) {
-//   return function(dispatch, getState) {
-//     dispatch(setLoading(true))
-//     payload = {
-//       ...payload,
-//       post_id: postId,
-//       name: getState().userState.user.data.name,
-//       email: getState().userState.user.data.email
-//     }
-//     fetch(`${baseUrl}/posts/${postId}/comments`, {
-//       method: "POST",
-//       body: JSON.stringify(payload),
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//         'Authorization': 'Bearer 39127a3015fdf079ef0ba0ea664eecc7ef0f43368d7d7a5bc42df1f77f687878'
-//       },
-//     }) 
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data); 
-//         dispatch(setComment(data))
-//         dispatch(getComments(postId))
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err))
-//       })
-//       .finally(() => {
-//         dispatch(setLoading(false))
-//       })
-//   }
-// }
-
-// export function deleteComment(commentId, postId) {
-//   return function(dispatch, getState) {
-//     dispatch(setLoading(true))
-//     // console.log(getState());
-//     fetch(`${baseUrl}/comments/${commentId}`, {
-//       method: "DELETE",
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//         'Authorization': 'Bearer 39127a3015fdf079ef0ba0ea664eecc7ef0f43368d7d7a5bc42df1f77f687878'
-//       }
-//     }) 
-//       .then(() => {
-//         Swal.fire({
-//           icon: 'success',
-//           title: 'Deleted!',
-//           text: `Comment has been deleted`,
-//           showConfirmButton: false
-//         })
-//         // const newTodo = getState().todoState.todos.data.filter(todo => todo.id !== todoId)
-//         // console.log(newTodo);  
-//         // dispatch(setTodos(newTodo))
-//         dispatch(getComments(postId))
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err))
-//       })
-//       .finally(() => {
-//         dispatch(setLoading(false))
-//       })
-//   }
-// }
-
-// export function updateComment(payload, commentId) {
-//   return function(dispatch, getState) {
-//     // console.log(todoId);
-//     // console.log(payload);
-//     dispatch(setLoading(true))
-//     fetch(`${baseUrl}/comments/${commentId}`, {
-//       method: "PUT",
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//         'Authorization': 'Bearer 39127a3015fdf079ef0ba0ea664eecc7ef0f43368d7d7a5bc42df1f77f687878'
-//       },
-//       body: JSON.stringify(payload)
-//     }) 
-//       .then(res => res.json())
-//       .then((data) => {
-//         console.log(data);
-//         dispatch(setComment(data));
-//       })
-//       .catch((err) => {
-//         dispatch(setError(err))
-//       })
-//       .finally(() => {
-//         dispatch(setLoading(false))
-//       })
-//   }
-// }

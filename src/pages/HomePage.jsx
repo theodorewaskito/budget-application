@@ -24,9 +24,7 @@ export default function HomePage() {
     navigate(`/add-transaction`)
   }
 
-  // function addExpense() {
-  //   navigate(`/add-expense`)
-  // }
+  let dollarIndonesiaLocale = Intl.NumberFormat('en-ID');
 
   useEffect(() => {
     dispatch(getTransactions())
@@ -43,21 +41,21 @@ export default function HomePage() {
               <div id="income-text">
                 <h4><b>INCOME</b></h4> 
               </div>
-              <p>Rp {income}</p> 
+              <p>Rp {dollarIndonesiaLocale.format(income)}</p> 
             </div>
             <hr class="solid"/>
             <div class="container">
               <div id="expense-text">
                 <h4><b>EXPENSE</b></h4> 
               </div>
-              <p>Rp -{expense}</p> 
+              <p>Rp -{dollarIndonesiaLocale.format(expense)}</p> 
             </div>
             <hr class="solid"/>
             <div class="container">
               <div id="balance-text">
                 <h4><b>BALANCE</b></h4> 
               </div>
-              <p>Rp {balance}</p> 
+              <p>Rp {dollarIndonesiaLocale.format(balance)}</p> 
             </div>
           </div>
         </div>
