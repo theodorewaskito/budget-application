@@ -1,0 +1,276 @@
+body {
+  background-color: #f2f2f2;
+}
+
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.header li {
+  float: left;
+}
+
+.header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.header li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #dd9400;
+}
+
+.button-add {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+  width: 90%;
+}
+
+.container-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-transaction {
+  background-color: #dd9400;
+  border: 1px solid #dd9400;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 10px;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 60%;
+}
+
+#add-expense {
+  background-color: #ffb300;
+  border: 1px solid #ffb300;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 10px;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+#add-transaction:hover {
+  background-color: rgb(128, 102, 1);
+}
+
+#add-expense:hover {
+  background-color: rgb(185, 106, 3);
+}
+
+#add-transaction:focus-visible, #add-expense:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+#add-transaction:active, #add-expense:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+  background-color: rgb(128, 102, 1);
+}
+
+#add-transaction:disabled, #add-expense:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.budget {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#transactions {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  /* margin: 10px; */
+}
+
+#transactions td, #transactions th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#transactions tr:hover {
+  background-color: white;
+}
+
+#transactions th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  /* text-align: left; */
+  background-color: #b67900;
+  color: white;
+}
+
+#delete-button {
+  margin-right: 10px;
+}
+
+#edit-button {
+  margin-right: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: white;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 2px 16px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#income-text, #expense-text, #balance-text {
+  /* background-color: #45a049; */
+  width: 40%;
+  margin-right: 10px;
+}
+
+#income-text b  {
+  color: #45a049;
+}
+
+#expense-text b  {
+  color: #be3523;
+}
+
+#balance-text b  {
+  color: #349dd5;
+}
+
+/* input */
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit], .cancel-button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.cancel-button {
+  width: 100%;
+  background-color: #e02020;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+button[type=submit]:hover{
+  background-color: #45a049;
+}
+
+.cancel-button:hover {
+  background-color: #ba0000;
+}
+
+.buttons {
+  display: grid;
+  column-gap: 20px;
+  margin-top: 20px;
+}
+
+/* div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+} */
+
+.add-form {
+  width: 60%
+}
+
+.pads {
+  background-color: #f2f2f2;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
