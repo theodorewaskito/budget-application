@@ -1,7 +1,3 @@
-/* .App {
-  background-color: #f2f2f2;
-} */
-
 body {
   background-color: #f2f2f2;
 }
@@ -35,7 +31,9 @@ body {
 }
 
 .button-add {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 hr.solid {
@@ -49,7 +47,7 @@ hr.solid {
   justify-content: center;
 }
 
-#add-income {
+#add-transaction {
   background-color: #00cc00;
   border: 1px solid #00cc00;
   border-radius: 8px;
@@ -71,9 +69,7 @@ hr.solid {
   transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
   user-select: none;
   -webkit-user-select: none;
-  width: auto;
-  grid-column-start: 1;
-  grid-column-end: 2;
+  width: 60%;
 }
 
 #add-expense {
@@ -103,7 +99,7 @@ hr.solid {
   grid-column-end: 3;
 }
 
-#add-income:hover {
+#add-transaction:hover {
   background-color: rgb(58, 197, 3);
 }
 
@@ -112,19 +108,19 @@ hr.solid {
 
 }
 
-#add-income:focus-visible, #add-expense:focus-visible {
+#add-transaction:focus-visible, #add-expense:focus-visible {
   box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
   transition: box-shadow .2s;
 }
 
-#add-income:active, #add-expense:active {
+#add-transaction:active, #add-expense:active {
   background-color: #F7F7F7;
   border-color: #000000;
   transform: scale(.96);
   background-color: rgb(254, 166, 52);
 }
 
-#add-income:disabled, #add-expense:disabled {
+#add-transaction:disabled, #add-expense:disabled {
   border-color: #DDDDDD;
   color: #DDDDDD;
   cursor: not-allowed;
@@ -187,6 +183,7 @@ hr.solid {
 #income-text, #expense-text, #balance-text {
   /* background-color: #45a049; */
   width: 40%;
+  margin-right: 10px;
 }
 
 #income-text b  {

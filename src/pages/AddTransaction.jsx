@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 
 
-export default function AddIncome() {
+export default function AddTransaction() {
   const navigate = useNavigate()
 
   function cancel() {
@@ -12,7 +12,7 @@ export default function AddIncome() {
   return (
     <div className='container-add'>
       <div className="add-form pads">
-        <h2>Add Income (+)</h2>
+        <h2>Add Transaction</h2>
         <form>
           <label for="date">Date</label>
           <input type="date" id="date" name="date"/>
@@ -20,6 +20,12 @@ export default function AddIncome() {
           <input type="text" id="description" name="description"/>
           <label for="amount">Amount (IDR)</label>
           <input type="number" id="amount" name="itemname"/>
+
+          <label for="type">Type</label>
+          <select id="type" name="type">
+            <option value="327117">Expense (-)</option>
+            <option value="327116">Income (+)</option>
+          </select>
         
           <div className="buttons">
             <button 

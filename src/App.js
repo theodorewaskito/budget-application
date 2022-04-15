@@ -7,8 +7,7 @@ import {
 } from "react-router-dom";
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
-import AddIncome from './pages/AddIncome';
-import AddExpense from './pages/AddExpense';
+import AddTransaction from './pages/AddTransaction';
 
 function App() {
   return (
@@ -16,11 +15,8 @@ function App() {
       <div className="App">
         <Header/>
         <Routes>
-          <Route path="/add-income"  element={
-            <AddIncome/>
-          }/>
-          <Route path="/add-expense"  element={
-            <AddExpense/>
+          <Route path="/add-transaction"  element={
+            <AddTransaction/>
           }/>
           <Route path="/" element={
             <HomePage/>
