@@ -2,6 +2,7 @@ import {
   SET_LOADING_TRANSACTION, 
   SET_ERROR_TRANSACTION,
   SET_TRANSACTIONS,
+  SET_TRANSACTION,
   SET_LOADING_BALANCE, 
   SET_ERROR_BALANCE,
   SET_INCOME,
@@ -13,6 +14,7 @@ const initialState = {
   isLoadingTransaction: false,
   isErrorTransaction: false,
   transactions: [],
+  transaction: {},
   isLoadingBalance: false,
   isErrorBalance: false,
   income: 0,
@@ -29,6 +31,8 @@ function reducer(state = initialState, action) {
       return { ...state, isErrorTransaction: payload }
     case SET_TRANSACTIONS:
       return { ...state, transactions: payload }
+    case SET_TRANSACTION:
+      return { ...state, transaction: payload }
     case SET_LOADING_BALANCE:
       return { ...state, isLoadingBalance: payload }
     case SET_ERROR_BALANCE:

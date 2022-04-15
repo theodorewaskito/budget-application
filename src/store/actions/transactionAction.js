@@ -2,6 +2,7 @@ import {
   SET_LOADING_TRANSACTION, 
   SET_ERROR_TRANSACTION,
   SET_TRANSACTIONS,
+  SET_TRANSACTION,
   SET_INCOME,
   SET_EXPENSE,
   SET_BALANCE
@@ -28,6 +29,13 @@ export function setError(payload) {
 export function setTransactions(payload) {
   return {
     type: SET_TRANSACTIONS,
+    payload: payload 
+  }
+}
+
+export function setTransaction(payload) {
+  return {
+    type: SET_TRANSACTION,
     payload: payload 
   }
 }
@@ -101,6 +109,29 @@ export function getTransactions() {
   }
 }
 
+export function getTransactionById(id) {
+  return function(dispatch) {
+    dispatch(setLoading(true))
+    fetch(`${baseUrl}/transactions/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }) 
+      .then(res => res.json())
+      .then(data => {
+        console.log(data); 
+        dispatch(setTransaction(data))
+      })
+      .catch((err) => {
+        dispatch(setError(err))
+      })
+      .finally(() => {
+        dispatch(setLoading(false))
+      })
+  }
+}
+
+
 export function deleteTransaction(transactionId) {
   return function(dispatch) {
     dispatch(setLoading(true))
@@ -129,6 +160,31 @@ export function createTransaction(payload) {
     console.log(payload);
     fetch(`${baseUrl}/transactions`, {
       method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(payload)
+    }) 
+      .then(() => {
+        dispatch(getTransactions())
+      })
+      .catch((err) => {
+        dispatch(setError(err))
+      })
+      .finally(() => {
+        dispatch(setLoading(false))
+      })
+  }
+}
+
+export function updateTransaction(id, payload) {
+  return function(dispatch) {
+    dispatch(setLoading(true))
+    console.log(payload);
+    fetch(`${baseUrl}/transactions/${id}`, {
+      method: "PUT",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
